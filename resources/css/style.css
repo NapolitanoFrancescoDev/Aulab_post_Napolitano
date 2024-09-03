@@ -1,0 +1,347 @@
+body {
+    background-color: #ffffff;
+    
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+
+/* logo sito */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-weight: 700;
+
+    color: white;
+
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+    font-size: 1.5rem;
+
+    transition: color 0.3s ease;
+
+}
+
+/* Colore blu per il titolo al passaggio del mouse */
+.navbar-brand:hover {
+    color: #007bff;
+
+}
+
+/* Stile per l'icona del logo */
+.navbar-brand .logo {
+    height: 40px;
+
+    width: 40px;
+    border-radius: 50%;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    margin-right: 10px;
+
+    transition: transform 0.3s ease;
+
+}
+
+/* Leggero ingrandimento al passaggio del mouse */
+.navbar-brand .logo:hover {
+    transform: scale(1.05);
+
+}
+
+.logo-search {
+    height: 20px;
+    width: 20px;
+}
+
+/* Stili generali per tutti i link della navbar, inclusi Login e Registrati */
+.navbar-nav .nav-link {
+    color: white;
+
+    font-weight: 600;
+
+    transition: color 0.3s ease;
+
+}
+
+/* Colore al passaggio del mouse per tutti i link della navbar */
+.navbar-nav .nav-link:hover {
+    color: #007bff !important;
+
+}
+
+/* Stile per la navbar su mobile */
+@media (max-width: 767.98px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        width: 100%;
+
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+    .navbar-nav .nav-link {
+        display: block;
+
+        width: 100%;
+
+        padding: 10px;
+
+        text-align: center;
+
+        border-bottom: 1px solid #ddd;
+
+    }
+
+    /* Rimuove il bordo inferiore per l'ultimo link */
+    .navbar-nav .nav-item:last-child .nav-link {
+        border-bottom: none;
+    }
+}
+
+
+/* Animazione per far scorrere il titolo da sinistra verso il centro */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animazione di 0.7 secondi */
+.animate-title {
+    animation: slideInFromLeft 0.7s ease-out;
+
+}
+
+/*margini e padding rimossi */
+.container-fluid.p-0 {
+    padding: 0;
+    margin: 0;
+}
+
+.text-white {
+    color: white !important;
+}
+
+/* immagine di sfondo */
+.bg-image {
+    background-image: url('/public/storage/images/bg.jpg');
+    /* Assicurati che il percorso sia corretto */
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 300px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Oscuramento dell'immagine di sfondo */
+.bg-image:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Maggiore oscuramento */
+    z-index: 1;
+
+}
+
+/* Sfumatura nella parte inferiore */
+.bg-image:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    /* Maggiore oscuramento nella parte superiore */
+    z-index: 2;
+}
+
+/* Stile per il contenuto sopra l'immagine */
+.bg-image h1,
+.bg-image h2,
+.bg-image .alert {
+    position: relative;
+    z-index: 3;
+}
+
+/* Stili per la card */
+.card {
+    border-radius: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.card-img-top {
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 0;
+}
+
+/* Transizione delle card */
+.card-hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.card-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stile per il link delle card */
+.custom-link-card {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+/* Aggiunge una linea sotto al link */
+.custom-link-card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #007bff;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+/* Effetto al passaggio del cursore */
+.custom-link-card:hover::after {
+    transform: translateX(0);
+}
+
+
+/* Transizione degli elementi */
+.hidden-element {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.visible-element {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ombreggiatura per il form di ricerca nella navbar */
+.navbar .form-control {
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
+
+    border: 1px solid rgba(0, 123, 255, 0.3);
+
+    transition: box-shadow 0.3s ease, border 0.3s ease;
+
+}
+
+.navbar .form-control:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.7);
+
+    border: 1px solid rgba(0, 123, 255, 0.7);
+
+}
+
+/* Stile per il footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+}
+
+.footer .footer-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+.footer .fa {
+    margin-right: 0.5rem;
+}
+
+.text-center p {
+    margin-bottom: 0;
+}
+
+/* Stile responsive per il footer */
+@media (max-width: 767.98px) {
+    .social-icons {
+        text-align: center;
+    }
+}
+
+/*stile icone social footer */
+.icone-social {
+
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+}
